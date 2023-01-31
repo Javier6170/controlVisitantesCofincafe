@@ -17,6 +17,7 @@ Navbar
 
 .navbar {
   padding: 0.2rem 1rem;
+  background-color: #34a4a8;
 
   a.nav-link {
     font-weight: 400;
@@ -27,10 +28,8 @@ Navbar
 Logo styles
 ========================================================================== */
 .logo-img {
-  height: 45px;
-  width: 45px;
+  height: 80px;
+  width: 300px;
   display: inline-block;
-  vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
-  background-size: contain;
+  background: url('../../../content/images/logo-cofincafe.png') no-repeat center center;
 }

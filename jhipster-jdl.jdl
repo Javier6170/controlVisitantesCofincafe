@@ -1,0 +1,13 @@
+
+entity Visitantes {
+	identificacion String
+	nombre String
+    apellido String
+    fecha LocalDate
+    pisoVisitado String
+    areaVisitada String
+    telefono String
+    equipo String
+    observaciones String
+}
+

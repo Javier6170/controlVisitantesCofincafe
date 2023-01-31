@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, com.cofincafe.control.domain.User.class.getName());
             createCache(cm, com.cofincafe.control.domain.Authority.class.getName());
             createCache(cm, com.cofincafe.control.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.cofincafe.control.domain.Visitantes.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,32 @@
+{
+  "controlVisitantesCofincafeApp": {
+    "visitantes": {
+      "home": {
+        "title": "Visitantes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Visitantes",
+        "createOrEditLabel": "Create or edit a Visitantes",
+        "notFound": "No Visitantes found"
+      },
+      "created": "A new Visitantes is created with identifier {{ param }}",
+      "updated": "A Visitantes is updated with identifier {{ param }}",
+      "deleted": "A Visitantes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Visitantes {{ id }}?"
+      },
+      "detail": {
+        "title": "Visitantes"
+      },
+      "id": "ID",
+      "identificacion": "Identificacion",
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "fecha": "Fecha",
+      "pisoVisitado": "Piso Visitado",
+      "areaVisitada": "Area Visitada",
+      "telefono": "Telefono",
+      "equipo": "Equipo",
+      "observaciones": "Observaciones"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="visitantes">
+      <h2 data-cy="visitantesDetailsHeading">
+        <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.detail.title">Visitantes</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ visitantes.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.identificacion">Identificacion</span></dt>
+        <dd>
+          <span>{{ visitantes.identificacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ visitantes.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.apellido">Apellido</span></dt>
+        <dd>
+          <span>{{ visitantes.apellido }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.fecha">Fecha</span></dt>
+        <dd>
+          <span>{{ visitantes.fecha }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.pisoVisitado">Piso Visitado</span></dt>
+        <dd>
+          <span>{{ visitantes.pisoVisitado }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.areaVisitada">Area Visitada</span></dt>
+        <dd>
+          <span>{{ visitantes.areaVisitada }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ visitantes.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.equipo">Equipo</span></dt>
+        <dd>
+          <span>{{ visitantes.equipo }}</span>
+        </dd>
+        <dt><span jhiTranslate="controlVisitantesCofincafeApp.visitantes.observaciones">Observaciones</span></dt>
+        <dd>
+          <span>{{ visitantes.observaciones }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/visitantes', visitantes.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

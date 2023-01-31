@@ -52,6 +52,10 @@ export class RegisterComponent implements AfterViewInit {
     }
   }
 
+  previousState(): void {
+    window.history.back();
+  }
+
   register(): void {
     this.doNotMatch = false;
     this.error = false;

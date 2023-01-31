@@ -1,12 +1,13 @@
 {
   "global": {
-    "title": "ControlVisitantesCofincafe",
-    "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=es\">actualice su navegador</a> para mejorar su experiencia.",
+    "title": "Control visitantes cofincafe",
+    "browsehappy": "Está usando un navegador . Por favor, <a href=\"http://browsehappy.com/?locale=es\">actualice su navegador</a> para mejorar su experiencia.",
     "menu": {
       "home": "Inicio",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "visitantes": "Visitantes",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -17,6 +18,9 @@
         "login": "Iniciar sesión",
         "logout": "Cerrar la sesión",
         "register": "Crear una cuenta"
+      },
+      "recepcion": {
+        "main": "Gestionar visitantes"
       },
       "admin": {
         "main": "Administración",
@@ -42,7 +46,7 @@
       "confirmpassword.label": "Confirmación de la nueva contraseña",
       "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
       "email.label": "Correo electrónico",
-      "email.placeholder": "Su correo electrónico"
+      "email.placeholder": "El correo electrónico"
     },
     "messages": {
       "info": {

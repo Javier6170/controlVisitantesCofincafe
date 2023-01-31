@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230127004252",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "visitantes",
+  "fields": [
+    {
+      "fieldName": "identificacion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "pisoVisitado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaVisitada",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "equipo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observaciones",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Visitantes",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

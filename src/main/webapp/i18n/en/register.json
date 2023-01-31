@@ -1,16 +1,16 @@
 {
   "register": {
-    "title": "Registration",
+    "title": "Cofincacfe employee registration",
     "form": {
       "button": "Register"
     },
     "messages": {
       "validate": {
         "login": {
-          "required": "Your username is required.",
-          "minlength": "Your username is required to be at least 1 character.",
-          "maxlength": "Your username cannot be longer than 50 characters.",
-          "pattern": "Your username is invalid."
+          "required": "The username is required.",
+          "minlength": "The username is required to be at least 1 character.",
+          "maxlength": "The username cannot be longer than 50 characters.",
+          "pattern": "The username is invalid."
         }
       },
       "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
