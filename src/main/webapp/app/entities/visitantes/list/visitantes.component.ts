@@ -32,6 +32,8 @@ export class VisitantesComponent implements OnInit {
   beansAscending = true;
   propertySources: PropertySource[] = [];
 
+  dtOptions: DataTables.Settings = {};
+
   constructor(
     protected visitantesService: VisitantesService,
     protected activatedRoute: ActivatedRoute,
@@ -45,6 +47,9 @@ export class VisitantesComponent implements OnInit {
   ngOnInit(): void {
     this.load();
     this.handleNavigation();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+    };
   }
 
   delete(visitantes: IVisitantes): void {
