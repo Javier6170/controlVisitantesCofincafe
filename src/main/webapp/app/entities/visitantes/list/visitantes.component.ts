@@ -15,6 +15,7 @@ import { Bean, PropertySource } from 'app/admin/configuration/configuration.mode
 @Component({
   selector: 'jhi-visitantes',
   templateUrl: './visitantes.component.html',
+  styleUrls: ['./visitantes.component.css'],
 })
 export class VisitantesComponent implements OnInit {
   visitantes?: IVisitantes[] | null;
@@ -32,7 +33,7 @@ export class VisitantesComponent implements OnInit {
   beansAscending = true;
   propertySources: PropertySource[] = [];
 
-  dtOptions: DataTables.Settings = {};
+  dtOptions: any = {};
 
   constructor(
     protected visitantesService: VisitantesService,
@@ -49,6 +50,8 @@ export class VisitantesComponent implements OnInit {
     this.handleNavigation();
     this.dtOptions = {
       pagingType: 'full_numbers',
+      dom: 'Bfrtip',
+      buttons: ['print', 'excel', 'pdf'],
     };
   }
 

@@ -2,7 +2,7 @@
   "controlVisitantesCofincafeApp": {
     "visitantes": {
       "home": {
-        "title": "Visitantes",
+        "title": "Visitantes actuales",
         "refreshListLabel": "Refrescar lista",
         "createLabel": "Crear nuevo Visitantes",
         "createOrEditLabel": "Crear o editar Visitantes",
