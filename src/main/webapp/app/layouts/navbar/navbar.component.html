@@ -108,6 +108,18 @@
                 <span jhiTranslate="global.menu.entities.visitantes">Visitantes</span>
               </a>
             </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="historialVisitantes"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.entities.historialVisitantes">Historial Visitantes</span>
+              </a>
+            </li>
           </ul>
         </li>
 

@@ -1,0 +1,143 @@
+<div>
+  <h2 id="page-heading m-3" data-cy="VisitantesHeading">
+    <div class="text-center m-2 mb-2">
+      <span jhiTranslate="controlVisitantesCofincafeApp.historialVisitantes.home.title">Visitantes</span>
+    </div>
+  </h2>
+
+  <div class="text-center m-3">
+    <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+      <span jhiTranslate="controlVisitantesCofincafeApp.historialVisitantes.home.refreshListLabel">Refrescar lista</span>
+    </button>
+  </div>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="visitantes?.length === 0">
+    <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.home.notFound">Ningún Visitantes encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="visitantes && visitantes.length > 0">
+    <table datatable [dtOptions]="dtOptions" class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="transition()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="identificacion">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.identificacion">Identificacion</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nombre">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.nombre">Nombre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="apellido">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.apellido">Apellido</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fecha">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.fecha">Fecha</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pisoVisitado">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.pisoVisitado">Piso Visitado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="areaVisitada">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.areaVisitada">Area Visitada</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="telefono">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.telefono">Telefono</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="equipo">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.equipo">Equipo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="observaciones">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.observaciones">Observaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let visitantes of visitantes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/visitantes', visitantes.id, 'view']">{{ visitantes.id }}</a>
+          </td>
+          <td>{{ visitantes.identificacion }}</td>
+          <td>{{ visitantes.nombre }}</td>
+          <td>{{ visitantes.apellido }}</td>
+          <td>{{ visitantes.fecha }}</td>
+          <td>{{ visitantes.pisoVisitado }}</td>
+          <td>{{ visitantes.areaVisitada }}</td>
+          <td>{{ visitantes.telefono }}</td>
+          <td>{{ visitantes.equipo }}</td>
+          <td>{{ visitantes.observaciones }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/visitantes', visitantes.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+              </button>
+
+              <button
+                *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                type="submit"
+                [routerLink]="['/visitantes', visitantes.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button
+                *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                type="submit"
+                (click)="delete(visitantes)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

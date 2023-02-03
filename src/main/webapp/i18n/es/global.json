@@ -8,6 +8,7 @@
       "entities": {
         "main": "Entidades",
         "visitantes": "Visitantes",
+        "historialVisitantes": "Historial de visitantes",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

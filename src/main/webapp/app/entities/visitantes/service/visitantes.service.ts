@@ -36,10 +36,10 @@ export class VisitantesService {
       .pipe(map(res => this.convertResponseFromServer(res)));
   }
 
-  findAll(): Observable<EntityResponseType> {
+  findAll(): Observable<EntityArrayResponseType> {
     return this.http
-      .get<RestVisitantes>(`${this.resourceUrl}`, { observe: 'response' })
-      .pipe(map(res => this.convertResponseFromServer(res)));
+      .get<RestVisitantes[]>(this.resourceUrl, { observe: 'response' })
+      .pipe(map(res => this.convertResponseArrayFromServer(res)));
   }
 
   update(visitantes: IVisitantes): Observable<EntityResponseType> {

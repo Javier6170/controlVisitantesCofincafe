@@ -22,13 +22,15 @@
             >Identificacion</label
           >
           <input
-            type="number"
+            type="text"
             class="form-control"
             name="identificacion"
             id="field_identificacion"
             data-cy="identificacion"
             formControlName="identificacion"
-            required
+            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+            required="true"
+            autofocus=""
             maxlength="10"
           />
         </div>
@@ -54,14 +56,16 @@
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="controlVisitantesCofincafeApp.visitantes.telefono" for="field_telefono">Telefono</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             name="telefono"
             id="field_telefono"
             data-cy="telefono"
             formControlName="telefono"
+            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+            autofocus=""
+            required="true"
             maxlength="10"
-            required
           />
         </div>
 

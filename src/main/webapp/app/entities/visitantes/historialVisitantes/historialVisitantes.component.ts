@@ -9,15 +9,14 @@ import { EntityArrayResponseType, VisitantesService } from '../service/visitante
 import { VisitantesDeleteDialogComponent } from '../delete/visitantes-delete-dialog.component';
 import { SortService } from 'app/shared/sort/sort.service';
 import { ITEMS_PER_PAGE } from 'app/config/pagination.constants';
-import { HttpResponse } from '@angular/common/http';
 import { Bean, PropertySource } from 'app/admin/configuration/configuration.model';
 
 @Component({
   selector: 'jhi-visitantes',
-  templateUrl: './visitantes.component.html',
-  styleUrls: ['./visitantes.component.css'],
+  templateUrl: './historialVisitantes.component.html',
+  styleUrls: ['./historialVisitantes.component.css'],
 })
-export class VisitantesComponent implements OnInit {
+export class historialVisitantesComponent implements OnInit {
   visitantes?: IVisitantes[] | null;
   isLoading = false;
   predicate = 'id';
@@ -47,11 +46,10 @@ export class VisitantesComponent implements OnInit {
 
   ngOnInit(): void {
     this.load();
-    this.handleNavigation();
     this.dtOptions = {
       pagingType: 'full_numbers',
-      select: true,
       dom: 'Bfrtip',
+      select: true,
       buttons: ['print', 'excel', 'pdf'],
     };
   }
@@ -70,6 +68,8 @@ export class VisitantesComponent implements OnInit {
           this.onResponseSuccess(res);
         },
       });
+    this.load();
+    location.reload();
   }
 
   filterAndSortBeans(): void {
@@ -81,30 +81,16 @@ export class VisitantesComponent implements OnInit {
   }
 
   load(): void {
+    this.visitantesService.findAll().subscribe(res => {
+      this.visitantes = res.body;
+    });
+
     this.loadFromBackendWithRouteInformations().subscribe({
       next: (res: EntityArrayResponseType) => {
         this.onResponseSuccess(res);
-        this.loadAll();
         this.numeroVisitantes = this.visitantes?.length;
       },
     });
-  }
-
-  loadAll(): void {
-    this.isLoading = true;
-    this.visitantesService
-      .query({
-        page: this.page - 1,
-        size: this.itemsPerPage,
-        sort: this.sort(),
-      })
-      .subscribe({
-        next: (res: HttpResponse<IVisitantes[]>) => {
-          this.isLoading = false;
-          this.onSuccess(res.body);
-        },
-        error: () => (this.isLoading = false),
-      });
   }
 
   transition(): void {
@@ -117,10 +103,6 @@ export class VisitantesComponent implements OnInit {
     });
   }
 
-  navigateToWithComponentValues(): void {
-    this.handleNavigation();
-  }
-
   protected loadFromBackendWithRouteInformations(): Observable<EntityArrayResponseType> {
     return combineLatest([this.activatedRoute.queryParamMap, this.activatedRoute.data]).pipe(
       tap(([params, data]) => this.fillComponentAttributeFromRoute(params, data)),
@@ -129,7 +111,7 @@ export class VisitantesComponent implements OnInit {
   }
 
   protected fillComponentAttributeFromRoute(params: ParamMap, data: Data): void {
-    const sort = (params.get(SORT) ?? data[DEFAULT_SORT_DATA]).split(',');
+    const sort = params.get(SORT) ?? data[DEFAULT_SORT_DATA];
     this.predicate = sort[0];
     this.ascending = sort[1] === ASC;
   }
@@ -162,17 +144,6 @@ export class VisitantesComponent implements OnInit {
     } else {
       return [predicate + ',' + ascendingQueryParam];
     }
-  }
-
-  private handleNavigation(): void {
-    combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap]).subscribe(([data, params]) => {
-      const page = params.get('page');
-      this.page = +(page ?? 1);
-      const sort = (params.get(SORT) ?? data['defaultSort']).split(',');
-      this.predicate = sort[0];
-      this.ascending = sort[1] === ASC;
-      this.loadAll();
-    });
   }
 
   private sort(): string[] {

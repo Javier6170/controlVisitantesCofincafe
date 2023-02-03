@@ -1,11 +1,9 @@
 {
   "controlVisitantesCofincafeApp": {
-    "visitantes": {
+    "historialVisitantes": {
       "home": {
-        "title": "Visitantes actuales",
+        "title": "Historial de visitantes",
         "refreshListLabel": "Refrescar lista",
-        "createLabel": "Crear nuevo Visitantes",
-        "createOrEditLabel": "Crear o editar Visitantes",
         "notFound": "Ningún Visitantes encontrado"
       },
       "historialVisitantes": {
@@ -14,12 +12,6 @@
         "createLabel": "Crear nuevo Visitantes",
         "createOrEditLabel": "Crear o editar Visitantes",
         "notFound": "Ningún Visitantes encontrado"
-      },
-      "created": "Un nuevo Visitantes ha sido creado con el identificador {{ param }}",
-      "updated": "Un Visitantes ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Visitantes ha sido eliminado con el identificador {{ param }}",
-      "delete": {
-        "question": "¿Seguro que quiere eliminar Visitantes {{ id }}?"
       },
       "detail": {
         "title": "Visitantes"
