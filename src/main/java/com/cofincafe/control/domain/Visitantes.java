@@ -33,7 +33,7 @@ public class Visitantes implements Serializable {
     private String apellido;
 
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
 
     @Column(name = "piso_visitado")
     private String pisoVisitado;
@@ -116,16 +116,16 @@ public class Visitantes implements Serializable {
         this.apellido = apellido;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return this.fecha;
     }
 
-    public Visitantes fecha(Date fecha) {
+    public Visitantes fecha(LocalDate fecha) {
         this.setFecha(fecha);
         return this;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

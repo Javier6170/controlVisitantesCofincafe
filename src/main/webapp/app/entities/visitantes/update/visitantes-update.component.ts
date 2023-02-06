@@ -55,7 +55,7 @@ export class VisitantesUpdateComponent implements OnInit {
     this.areas = this.areasSeleccion[dato];
   }
 
-  cambioEquipo(dato): void {
+  cambioEquipo(dato: any): void {
     // eslint-disable-next-line eqeqeq
     if (dato == 'NO') {
       document.getElementById('info').style.display = 'none';

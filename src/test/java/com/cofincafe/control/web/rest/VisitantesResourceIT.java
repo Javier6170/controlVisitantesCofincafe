@@ -41,8 +41,8 @@ class VisitantesResourceIT {
     private static final String DEFAULT_APELLIDO = "AAAAAAAAAA";
     private static final String UPDATED_APELLIDO = "BBBBBBBBBB";
 
-    private static final Date DEFAULT_FECHA = new Date();
-    private static final Date UPDATED_FECHA = new Date();
+    private static final LocalDate DEFAULT_FECHA = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_FECHA = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_PISO_VISITADO = "AAAAAAAAAA";
     private static final String UPDATED_PISO_VISITADO = "BBBBBBBBBB";

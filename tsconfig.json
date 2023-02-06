@@ -2,11 +2,11 @@
   "compilerOptions": {
     "baseUrl": "src/main/webapp/",
     "outDir": "./target/classes/static/",
-    "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": true,
     "strict": false,
     "strictNullChecks": false,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -23,7 +23,6 @@
     "strictInjectionParameters": false,
     "strictInputAccessModifiers": false,
     "strictTemplates": false,
-    "preserveWhitespaces": false,
-    "tslint": false
+    "preserveWhitespaces": false
   }
 }

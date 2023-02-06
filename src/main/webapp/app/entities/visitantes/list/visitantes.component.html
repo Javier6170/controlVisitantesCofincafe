@@ -30,7 +30,7 @@
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="visitantes && visitantes.length > 0">
-    <table datatab le [dtOptions]="dtOptions" class="table table-striped" aria-describedby="page-heading">
+    <table datatab [dtOptions]="dtOptions" class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="transition()">
           <th scope="col" jhiSortBy="id">
