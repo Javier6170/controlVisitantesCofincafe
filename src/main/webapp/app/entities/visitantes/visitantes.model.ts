@@ -8,6 +8,10 @@ export interface IVisitantes {
   areaVisitada?: string | null;
   telefono?: string | null;
   equipo?: string | null;
+  nombreEquipo?: string | null;
+  marcaEquipo?: string | null;
+  serialEquipo?: string | null;
+  serialTarjeta?: string | null;
   observaciones?: string | null;
 }
 
@@ -22,6 +26,10 @@ export class Visitante implements IVisitantes {
     public areaVisitada?: string | null,
     public telefono?: string | null,
     public equipo?: string | null,
+    public nombreEquipo?: string | null,
+    public marcaEquipo?: string | null,
+    public serialEquipo?: string | null,
+    public serialTarjeta?: string | null,
     public observaciones?: string
   ) {}
 }

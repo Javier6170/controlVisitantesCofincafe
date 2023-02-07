@@ -6,6 +6,6 @@ export const historialVisitantesRoute: Route = {
   path: '',
   component: historialVisitantesComponent,
   data: {
-    pageTitle: 'historialVisitantes.home.title',
+    pageTitle: 'controlVisitantesCofincafeApp.historialVisitantes.home.title',
   },
 };

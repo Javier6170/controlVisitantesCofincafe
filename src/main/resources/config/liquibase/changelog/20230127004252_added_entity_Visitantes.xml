@@ -38,6 +38,18 @@
             <column name="equipo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="nombreEquipo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="marcaEquipo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="serialEquipo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="serialTarjeta" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="observaciones" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

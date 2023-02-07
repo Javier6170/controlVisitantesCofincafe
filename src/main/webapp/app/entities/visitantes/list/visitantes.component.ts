@@ -84,27 +84,9 @@ export class VisitantesComponent implements OnInit {
     this.loadFromBackendWithRouteInformations().subscribe({
       next: (res: EntityArrayResponseType) => {
         this.onResponseSuccess(res);
-        this.loadAll();
         this.numeroVisitantes = this.visitantes?.length;
       },
     });
-  }
-
-  loadAll(): void {
-    this.isLoading = true;
-    this.visitantesService
-      .query({
-        page: this.page - 1,
-        size: this.itemsPerPage,
-        sort: this.sort(),
-      })
-      .subscribe({
-        next: (res: HttpResponse<IVisitantes[]>) => {
-          this.isLoading = false;
-          this.onSuccess(res.body);
-        },
-        error: () => (this.isLoading = false),
-      });
   }
 
   transition(): void {
@@ -144,6 +126,13 @@ export class VisitantesComponent implements OnInit {
   }
 
   protected fillComponentAttributesFromResponseBody(data: IVisitantes[] | null): IVisitantes[] {
+    const fechaActual = new Date();
+    for (let i = 0; i < data.length; i++) {
+      // eslint-disable-next-line eqeqeq
+      if (data[i].fecha.getDate == fechaActual.getDate) {
+        return data;
+      }
+    }
     return data ?? [];
   }
 
@@ -171,7 +160,6 @@ export class VisitantesComponent implements OnInit {
       const sort = (params.get(SORT) ?? data['defaultSort']).split(',');
       this.predicate = sort[0];
       this.ascending = sort[1] === ASC;
-      this.loadAll();
     });
   }
 

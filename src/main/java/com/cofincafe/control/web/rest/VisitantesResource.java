@@ -147,6 +147,18 @@ public class VisitantesResource {
                 if (visitantes.getEquipo() != null) {
                     existingVisitantes.setEquipo(visitantes.getEquipo());
                 }
+                if (visitantes.getNombreEquipo() != null) {
+                    existingVisitantes.setNombreEquipo(visitantes.getNombreEquipo());
+                }
+                if (visitantes.getMarcaEquipo() != null) {
+                    existingVisitantes.setMarcaEquipo(visitantes.getMarcaEquipo());
+                }
+                if (visitantes.getSerialEquipo() != null) {
+                    existingVisitantes.setSerialEquipo(visitantes.getSerialEquipo());
+                }
+                if (visitantes.getSerialTarjeta() != null) {
+                    existingVisitantes.setSerialTarjeta(visitantes.getSerialTarjeta());
+                }
                 if (visitantes.getObservaciones() != null) {
                     existingVisitantes.setObservaciones(visitantes.getObservaciones());
                 }

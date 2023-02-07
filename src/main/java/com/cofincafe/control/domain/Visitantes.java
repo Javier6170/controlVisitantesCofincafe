@@ -2,6 +2,7 @@ package com.cofincafe.control.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -32,7 +33,7 @@ public class Visitantes implements Serializable {
     private String apellido;
 
     @Column(name = "fecha")
-    private LocalDate fecha;
+    private Date fecha;
 
     @Column(name = "piso_visitado")
     private String pisoVisitado;
@@ -45,6 +46,18 @@ public class Visitantes implements Serializable {
 
     @Column(name = "equipo")
     private String equipo;
+
+    @Column(name = "nombre_equipo")
+    private String nombreEquipo;
+
+    @Column(name = "marca_equipo")
+    private String marcaEquipo;
+
+    @Column(name = "serial_equipo")
+    private String serialEquipo;
+
+    @Column(name = "serial_tarjeta")
+    private String serialTarjeta;
 
     @Column(name = "observaciones")
     private String observaciones;
@@ -103,16 +116,16 @@ public class Visitantes implements Serializable {
         this.apellido = apellido;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return this.fecha;
     }
 
-    public Visitantes fecha(LocalDate fecha) {
+    public Visitantes fecha(Date fecha) {
         this.setFecha(fecha);
         return this;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -168,6 +181,38 @@ public class Visitantes implements Serializable {
         this.equipo = equipo;
     }
 
+    public String getNombreEquipo() {
+        return nombreEquipo;
+    }
+
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
+    }
+
+    public String getMarcaEquipo() {
+        return marcaEquipo;
+    }
+
+    public void setMarcaEquipo(String marcaEquipo) {
+        this.marcaEquipo = marcaEquipo;
+    }
+
+    public String getSerialEquipo() {
+        return serialEquipo;
+    }
+
+    public void setSerialEquipo(String serialEquipo) {
+        this.serialEquipo = serialEquipo;
+    }
+
+    public String getSerialTarjeta() {
+        return serialTarjeta;
+    }
+
+    public void setSerialTarjeta(String serialTarjeta) {
+        this.serialTarjeta = serialTarjeta;
+    }
+
     public String getObservaciones() {
         return this.observaciones;
     }
@@ -201,19 +246,24 @@ public class Visitantes implements Serializable {
     }
 
     // prettier-ignore
+
     @Override
     public String toString() {
         return "Visitantes{" +
-            "id=" + getId() +
-            ", identificacion='" + getIdentificacion() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", apellido='" + getApellido() + "'" +
-            ", fecha='" + getFecha() + "'" +
-            ", pisoVisitado='" + getPisoVisitado() + "'" +
-            ", areaVisitada='" + getAreaVisitada() + "'" +
-            ", telefono='" + getTelefono() + "'" +
-            ", equipo='" + getEquipo() + "'" +
-            ", observaciones='" + getObservaciones() + "'" +
-            "}";
+            "id=" + id +
+            ", identificacion='" + identificacion + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", apellido='" + apellido + '\'' +
+            ", fecha=" + fecha +
+            ", pisoVisitado='" + pisoVisitado + '\'' +
+            ", areaVisitada='" + areaVisitada + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", equipo='" + equipo + '\'' +
+            ", nombreEquipo='" + nombreEquipo + '\'' +
+            ", marcaEquipo='" + marcaEquipo + '\'' +
+            ", serialEquipo='" + serialEquipo + '\'' +
+            ", serialTarjeta='" + serialTarjeta + '\'' +
+            ", observaciones='" + observaciones + '\'' +
+            '}';
     }
 }

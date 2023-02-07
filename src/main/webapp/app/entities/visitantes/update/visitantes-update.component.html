@@ -68,7 +68,7 @@
             maxlength="10"
           />
         </div>
-
+        <hr class="bg-danger" />
         <div class="row mb-3" *ngIf="pisos && pisos.length > 0">
           <label jhiTranslate="controlVisitantesCofincafeApp.visitantes.pisoVisitado">Piso Visitado</label>
           <select
@@ -78,6 +78,7 @@
             id="field_pisoVisitado"
             name="pisoVisitado"
             formControlName="pisoVisitado"
+            (change)="cambioArea($event.target.value)"
             required
           >
             <option *ngFor="let pisoVisitado of pisos" [value]="pisoVisitado">{{ pisoVisitado }}</option>
@@ -101,9 +102,78 @@
 
         <div class="row mb-3" *ngIf="equipos && equipos.length > 0">
           <label jhiTranslate="controlVisitantesCofincafeApp.visitantes.equipo">Equipo</label>
-          <select id="field_equipo" data-cy="equipo" class="form-control" id="field_equipo" name="equipo" formControlName="equipo" required>
+          <select
+            id="field_equipo"
+            data-cy="equipo"
+            class="form-control"
+            id="field_equipo"
+            name="equipo"
+            formControlName="equipo"
+            (change)="cambioEquipo($event.target.value)"
+            required
+          >
             <option *ngFor="let equipo of equipos" [value]="equipo">{{ equipo }}</option>
           </select>
+        </div>
+
+        <div id="info" class="informacionEquipo">
+          <div class="row mb-3" id="form-nombre-equipo">
+            <label class="form-label" jhiTranslate="controlVisitantesCofincafeApp.visitantes.nombreEquipo" for="field_nombre_equipo"
+              >Nombre Equipo</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="nombreEquipo"
+              id="field_nombre_equipo"
+              data-cy="nombreEquipo"
+              formControlName="nombreEquipo"
+            />
+          </div>
+
+          <div class="row mb-3" id="form-marca-equipo">
+            <label class="form-label" jhiTranslate="controlVisitantesCofincafeApp.visitantes.marcaEquipo" for="field_marca_equipo"
+              >Marca equipo</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="marcaEquipo"
+              id="field_marca_equipo"
+              data-cy="marcaEquipo"
+              formControlName="marcaEquipo"
+            />
+          </div>
+
+          <div class="row mb-3" id="form-serial-equipo">
+            <label class="form-label" jhiTranslate="controlVisitantesCofincafeApp.visitantes.serialEquipo" for="field_serial_equipo"
+              >Serial del computador</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="serialEquipo"
+              id="field_serial_equipo"
+              data-cy="serialEquipo"
+              formControlName="serialEquipo"
+            />
+          </div>
+        </div>
+
+        <hr class="bg-danger" />
+        <div class="row mb-3" id="form-serial-tarjeta">
+          <label class="form-label" jhiTranslate="controlVisitantesCofincafeApp.visitantes.serialTarjeta" for="field_serial_tarjeta"
+            >Serial tarjeta prestada</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="serialTarjeta"
+            id="field_serial_tarjeta"
+            data-cy="serialTarjeta"
+            formControlName="serialTarjeta"
+            required
+          />
         </div>
 
         <div class="row mb-3">

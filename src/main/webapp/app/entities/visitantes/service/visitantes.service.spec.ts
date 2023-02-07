@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { DATE_FORMAT } from 'app/config/input.constants';
+import { DATE_TIME_FORMAT } from 'app/config/input.constants';
 import { IVisitantes } from '../visitantes.model';
 import { sampleWithRequiredData, sampleWithNewData, sampleWithPartialData, sampleWithFullData } from '../visitantes.test-samples';
 
@@ -9,7 +9,7 @@ import { VisitantesService, RestVisitantes } from './visitantes.service';
 
 const requireRestSample: RestVisitantes = {
   ...sampleWithRequiredData,
-  fecha: sampleWithRequiredData.fecha?.format(DATE_FORMAT),
+  fecha: sampleWithRequiredData.fecha?.format(DATE_TIME_FORMAT),
 };
 
 describe('Visitantes Service', () => {

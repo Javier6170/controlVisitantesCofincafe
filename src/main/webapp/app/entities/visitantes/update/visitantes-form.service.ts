@@ -26,6 +26,10 @@ type VisitantesFormGroupContent = {
   areaVisitada: FormControl<IVisitantes['areaVisitada']>;
   telefono: FormControl<IVisitantes['telefono']>;
   equipo: FormControl<IVisitantes['equipo']>;
+  nombreEquipo: FormControl<IVisitantes['nombreEquipo']>;
+  marcaEquipo: FormControl<IVisitantes['marcaEquipo']>;
+  serialEquipo: FormControl<IVisitantes['serialEquipo']>;
+  serialTarjeta: FormControl<IVisitantes['serialTarjeta']>;
   observaciones: FormControl<IVisitantes['observaciones']>;
 };
 
@@ -54,6 +58,10 @@ export class VisitantesFormService {
       areaVisitada: new FormControl(visitantesRawValue.areaVisitada),
       telefono: new FormControl(visitantesRawValue.telefono),
       equipo: new FormControl(visitantesRawValue.equipo),
+      nombreEquipo: new FormControl(visitantesRawValue.nombreEquipo),
+      marcaEquipo: new FormControl(visitantesRawValue.marcaEquipo),
+      serialEquipo: new FormControl(visitantesRawValue.serialEquipo),
+      serialTarjeta: new FormControl(visitantesRawValue.serialTarjeta),
       observaciones: new FormControl(visitantesRawValue.observaciones),
     });
   }

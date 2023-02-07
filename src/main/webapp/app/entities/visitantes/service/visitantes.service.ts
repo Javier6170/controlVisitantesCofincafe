@@ -29,7 +29,7 @@ export class VisitantesService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
-  create(visitantes: NewVisitantes): Observable<EntityResponseType> {
+  create(visitantes: IVisitantes): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(visitantes);
     return this.http
       .post<RestVisitantes>(this.resourceUrl, copy, { observe: 'response' })

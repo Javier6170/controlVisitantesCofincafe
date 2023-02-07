@@ -10,6 +10,7 @@ import com.cofincafe.control.domain.Visitantes;
 import com.cofincafe.control.repository.VisitantesRepository;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -40,8 +41,8 @@ class VisitantesResourceIT {
     private static final String DEFAULT_APELLIDO = "AAAAAAAAAA";
     private static final String UPDATED_APELLIDO = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_FECHA = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_FECHA = LocalDate.now(ZoneId.systemDefault());
+    private static final Date DEFAULT_FECHA = new Date();
+    private static final Date UPDATED_FECHA = new Date();
 
     private static final String DEFAULT_PISO_VISITADO = "AAAAAAAAAA";
     private static final String UPDATED_PISO_VISITADO = "BBBBBBBBBB";

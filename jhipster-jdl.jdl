@@ -1,13 +1,36 @@
 
-entity Visitantes {
-	identificacion String
+entity EspacioAlquilar {
+	fecha ZonedDateTime
+    horaInicio ZonedDateTime
+    horaFin ZonedDateTime
+    numeroAsistentes Integer
+    contactoEmpresa String
+    valorAlquiler Long
+}
+
+entity Empresa{
+	nombreEmpresa String
+    telefonoEmpresa String
+}
+
+entity Cliente{
 	nombre String
     apellido String
-    fecha LocalDate
-    pisoVisitado String
-    areaVisitada String
+    identificacion String
+    rut Blob
+    pdfCedula Blob
     telefono String
-    equipo String
-    observaciones String
 }
+
+relationship ManyToOne {
+	EspacioAlquilar{empresa} to Empresa
+}
+
+relationship OneToOne{
+ 	EspacioAlquilar{cliente} to Cliente
+}
+
+// Set pagination options
+paginate EspacioAlquilar with infinite-scroll
+paginate EspacioAlquilar with pagination
 

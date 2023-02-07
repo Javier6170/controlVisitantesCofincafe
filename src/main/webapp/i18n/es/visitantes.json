@@ -33,6 +33,10 @@
       "areaVisitada": "Area Visitada",
       "telefono": "Telefono",
       "equipo": "Equipo",
+      "nombreEquipo": "Nombre Equipo",
+      "marcaEquipo": "Marca Equipo",
+      "serialEquipo": "Serial Equipo",
+      "serialTarjeta": "Serial Tarjeta",
       "observaciones": "Observaciones"
     }
   }

@@ -78,6 +78,30 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="equipo">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.nombreEquipo">Nombre Equipo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="equipo">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.marcaEquipo">Marca Equipo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="equipo">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.serialEquipo">Serial Equipo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="equipo">
+            <div class="d-flex">
+              <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.serialTarjeta">Serial Tarjeta</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
           <th scope="col" jhiSortBy="observaciones">
             <div class="d-flex">
               <span jhiTranslate="controlVisitantesCofincafeApp.visitantes.observaciones">Observaciones</span>
@@ -95,11 +119,15 @@
           <td>{{ visitantes.identificacion }}</td>
           <td>{{ visitantes.nombre }}</td>
           <td>{{ visitantes.apellido }}</td>
-          <td>{{ visitantes.fecha }}</td>
+          <td>{{ visitantes.fecha | date: 'dd/MM/yyyy HH:mm' }}</td>
           <td>{{ visitantes.pisoVisitado }}</td>
           <td>{{ visitantes.areaVisitada }}</td>
           <td>{{ visitantes.telefono }}</td>
           <td>{{ visitantes.equipo }}</td>
+          <td>{{ visitantes.nombreEquipo }}</td>
+          <td>{{ visitantes.marcaEquipo }}</td>
+          <td>{{ visitantes.serialEquipo }}</td>
+          <td>{{ visitantes.serialTarjeta }}</td>
           <td>{{ visitantes.observaciones }}</td>
           <td class="text-end">
             <div class="btn-group">
